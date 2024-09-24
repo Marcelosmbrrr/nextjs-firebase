@@ -1,0 +1,40 @@
+FIREBASE AUTH
+
+-- ACTIONS
+
+1 - Login 
+
+https://bootstrapped.app/guide/how-to-implement-firebase-authentication-with-username-and-password
+
+2 - Register and email confirmation
+
+https://bootstrapped.app/guide/how-to-implement-email-verification-in-firebase-authentication
+
+When you create an account, that account is automatically signed in. There is no way to prevent this.
+
+Solution 1 - Use a passwordless email link to sign the user in. With this flow, the user's email address is automatically verified before they are signed in.
+Solution 2 - Check whether the user's email address is verified before allowing them to use the app, and access its data.
+Solution 3 - Create user with Firestore in the registration and after e-mail confirmation uses createUserWithEmailAndPassword
+
+3 - Forgot Password and Password Reset
+
+https://bootstrapped.app/guide/how-to-handle-firebase-authentication-password-reset-flow
+
+The password update link sent to the email redirects the user to a page on Firebase itself.
+To customize this, you need to change the settings for the Authentication service templates in Firebase.
+
+-- USER DATA
+
+User data in Firebase Authentication includes several properties associated with the user account.
+This data is accessible through the user object returned by Firebase functions such as createUserWithEmailAndPassword and signInWithEmailAndPassword.
+
+uid: A unique identifier for the user.
+email: The user's email (may be null if not provided).
+emailVerified: A boolean that indicates whether the email has been verified.
+displayName: The user's display name (if configured).
+photoURL: URL of the user's profile picture (if configured).
+phoneNumber: The user's phone number (if configured).
+providerId: The authentication provider used (e.g., "password", "google.com").
+metadata: Information about account creation and last login (containing creationTime and lastSignInTime).
+multiFactor: Information about multi-factor authentication, if enabled.
+tenantId: Tenant identifier, if multi-tenancy is being used.
