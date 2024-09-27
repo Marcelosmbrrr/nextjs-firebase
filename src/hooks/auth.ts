@@ -11,6 +11,24 @@ import {
   forgetUserPassword,
 } from "@/lib/firebase/actions/auth/auth";
 
+/**
+ * useAuth Hook:
+ * 
+ * Este hook utiliza SWR (stale-while-revalidate) para gerenciar a autenticação do usuário.
+ * 
+ * - **Cache de Dados**: Armazena a resposta da API em um cache, permitindo que diferentes componentes 
+ *   acessem o mesmo estado do usuário sem fazer chamadas repetidas.
+ * 
+ * - **Reatividade**: Componentes que usam `useAuth` recebem sempre os dados mais atualizados do cache.
+ * 
+ * - **Atualização com mutate**: Ao chamar `mutate`, o valor no cache é atualizado, garantindo que 
+ *   todos os componentes que consomem esses dados reagem automaticamente às mudanças (como login/logout).
+ * 
+ * O uso do SWR torna desnecessário o uso de um Context para garantir uma única instância de estado compartilhada.
+ * O estado de user é compartilhado porque é cacheado, todas as vezes que useAuth é utilizado ocorre uma consulta do cache existente.
+ * 
+ */
+
 interface AuthProps {
   middleware: string;
   redirectIfAuthenticated?: string;
@@ -170,7 +188,7 @@ export const useAuth = (
   const logout = async (): Promise<void> => {
     if (!error) {
       await logoutUser();
-      await mutate(null, false); // Defina o estado do usuário como `null` sem refazer a requisição.
+      await mutate(null, false); 
     }
     router.push("/login");
   };
