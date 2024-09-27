@@ -2,16 +2,13 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, run docker, install and run the development server:
 
 ```bash
+docker-compose up -d
+docker-compose exec app bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Second, set .env.local variables to run Firebase:
