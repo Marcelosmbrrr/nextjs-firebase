@@ -43,7 +43,7 @@ export default function Page({ params }: { params: { code: string } }) {
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
         <Link
           href="/login"
-          className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+          className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
         >
           <img
             className="w-8 h-8"
@@ -51,13 +51,13 @@ export default function Page({ params }: { params: { code: string } }) {
           />
           FireNext
         </Link>
-        <div className="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
-          <h2 className="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+        <div className="w-full p-6 bg-white rounded-lg shadow md:mt-0 sm:max-w-md">
+          <h2 className="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
             Change Password
           </h2>
           <div className="my-5">
             {errors.length > 0 && (
-              <div className="text-red-600 dark:text-red-400">
+              <div className="text-red-600">
                 {errors.map((error, index) => (
                   <p key={index}>{error}</p>
                 ))}
@@ -71,7 +71,7 @@ export default function Page({ params }: { params: { code: string } }) {
             <div>
               <label
                 htmlFor="password"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900"
               >
                 New Password
               </label>
@@ -82,14 +82,14 @@ export default function Page({ params }: { params: { code: string } }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
                 required
               />
             </div>
             <div>
               <label
                 htmlFor="passwordConfirmation"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900"
               >
                 Confirm password
               </label>
@@ -100,13 +100,13 @@ export default function Page({ params }: { params: { code: string } }) {
                 value={passwordConfirmation}
                 onChange={(e) => setPasswordConfirmation(e.target.value)}
                 placeholder="••••••••"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+              className="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               {isLoading ? "Loading ..." : "Reset Password"}
             </button>

@@ -9,7 +9,7 @@ export default function AuthLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-screen bg-gray-900 antialiased">
+      <body className="h-screen antialiased">
         <SnackbarProvider>{children}</SnackbarProvider>
       </body>
     </html>
